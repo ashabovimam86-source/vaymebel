@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vay mebel — мебель на заказ в Грозном</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1E1E1E;
+      color: #EDEDED;
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- HEADER ---------- */
+    .header {
+      padding: 28px 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+    }
+
+    .logo span {
+      color: #C49A6C;
+    }
+
+    .header-phone {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #C49A6C;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .header-phone:hover {
+      border-bottom-color: #C49A6C;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 40px 0 64px;
+    }
+
+    .hero h1 {
+      font-weight: 800;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      max-width: 900px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .accent {
+      color: #C49A6C;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 300;
+      color: #B0B0B0;
+      max-width: 680px;
+      margin-bottom: 40px;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #25D366;
+      color: #0E0E0E;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 18px 44px;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.15);
+      letter-spacing: -0.01em;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-whatsapp:hover {
+      background: #2ee67a;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp svg {
+      flex-shrink: 0;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    .section-title {
+      font-weight: 700;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: 40px;
+    }
+
+    .section-title .accent {
+      color: #C49A6C;
+    }
+
+    /* ---------- SERVICES / CARDS ---------- */
+    .services {
+      padding: 40px 0 72px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      background: #2A2A2A;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-gradient {
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, #3B2A1A 0%, #7A5A3A 35%, #A87C54 65%, #C49A6C 100%);
+      border-radius: 12px;
+      margin: 16px 16px 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    /* Декоративные полосы, имитирующие текстуру дерева */
+    .card-gradient::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        92deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.03) 10px,
+        rgba(255, 255, 255, 0.03) 12px
+      );
+      pointer-events: none;
+    }
+
+    .card-gradient::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(255, 230, 200, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .card-gradient .card-label {
+      position: relative;
+      z-index: 2;
+      font-weight: 700;
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0 16px;
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+      line-height: 1.3;
+    }
+
+    .card-body {
+      padding: 18px 20px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-body h3 {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-body p {
+      font-size: 0.95rem;
+      color: #A8A8A8;
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    /* ---------- WHY US ---------- */
+    .why-us {
+      padding: 20px 0 72px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .why-item {
+      background: #262626;
+      border-radius: 18px;
+      padding: 32px 26px;
+      border: 1px solid #333333;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .why-item:hover {
+      border-color: #C49A6C;
+      background: #2C2C2C;
+    }
+
+    .why-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(196, 154, 108, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .why-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: #C49A6C;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .why-item h3 {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .why-item p {
+      font-size: 0.95rem;
+      color: #A0A0A0;
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    /* ---------- CONTACTS ---------- */
+    .contacts {
+      padding: 0 0 64px;
+    }
+
+    .contacts-box {
+      background: #262626;
+      border-radius: 28px;
+      padding: 52px 48px;
+      border: 1px solid #333333;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .contacts-info {
+      flex: 1 1 340px;
+    }
+
+    .contacts-info h2 {
+      font-weight: 700;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: 28px;
+    }
+
+    .contacts-info h2 .accent {
+      color: #C49A6C;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .contact-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-row svg {
+      width: 22px;
+      height: 22px;
+      stroke: #C49A6C;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-row .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888888;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .contact-row .value {
+      font-size: 1.05rem;
+      color: #E8E8E8;
+      font-weight: 400;
+    }
+
+    .contact-row .value a {
+      color: #E8E8E8;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-row .value a:hover {
+      color: #C49A6C;
+      border-bottom-color: #C49A6C;
+    }
+
+    .contacts-action {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contacts-action .hint {
+      font-size: 0.85rem;
+      color: #888888;
+      text-align: center;
+      max-width: 220px;
+      line-height: 1.5;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      padding: 28px 0 36px;
+      border-top: 1px solid #2E2E2E;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: #666666;
+    }
+
+    .footer .footer-logo {
+      font-weight: 700;
+      color: #C49A6C;
+      font-size: 1rem;
+    }
+
+    /* ---------- АДАПТИВНОСТЬ ---------- */
+    @media (max-width: 900px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .contacts-box {
+        flex-direction: column;
+        padding: 36px 28px;
+        gap: 36px;
+        align-items: stretch;
+      }
+
+      .contacts-action {
+        align-items: stretch;
+      }
+
+      .contacts-action .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .contacts-action .hint {
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 18px;
+      }
+
+      .header {
+        padding: 20px 0 8px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .hero {
+        padding: 24px 0 48px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+      }
+
+      .hero .subtitle {
+        font-size: 1rem;
+        margin-bottom: 32px;
+      }
+
+      .btn-whatsapp {
+        padding: 16px 32px;
+        font-size: 1.05rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+        margin-bottom: 28px;
+      }
+
+      .card-body {
+        padding: 14px 16px 20px;
+      }
+
+      .card-gradient {
+        margin: 12px 12px 0 12px;
+      }
+
+      .why-item {
+        padding: 24px 20px;
+      }
+
+      .contacts-info h2 {
+        margin-bottom: 22px;
+      }
+
+      .contacts-box {
+        padding: 28px 20px;
+      }
+
+      .footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">Vay <span>mebel</span></div>
+      <a href="tel:+79389097323" class="header-phone">+7 (938) 909-73-23</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Мебель на заказ<br>в <span class="accent">Грозном</span></h1>
+      <p class="subtitle">Кухни, шкафы и стеллажи по индивидуальным размерам</p>
+      <a href="https://wa.me/79389097323" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.75 7.84 19L7.54 18.82L4.43 19.64L5.26 16.61L5.07 16.29C4.24 14.98 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.32 4.53 17.87 6.09C19.42 7.64 20.28 9.71 20.28 11.91C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.14C16.31 14.02 15.09 13.42 14.87 13.33C14.64 13.25 14.48 13.2 14.31 13.45C14.14 13.7 13.67 14.25 13.52 14.42C13.37 14.59 13.22 14.61 12.97 14.49C12.72 14.37 11.92 14.11 10.98 13.27C10.25 12.62 9.76 11.81 9.61 11.56C9.46 11.31 9.58 11.17 9.7 11.06C9.81 10.95 9.94 10.78 10.06 10.63C10.18 10.48 10.22 10.37 10.3 10.2C10.38 10.03 10.34 9.88 10.28 9.76C10.22 9.64 9.72 8.42 9.52 7.92C9.32 7.44 9.12 7.5 8.97 7.49C8.83 7.48 8.66 7.48 8.49 7.48C8.32 7.48 8.05 7.54 7.82 7.79C7.59 8.04 6.96 8.63 6.96 9.84C6.96 11.05 7.84 12.22 7.96 12.39C8.08 12.56 9.7 15.06 12.18 16.13C12.77 16.39 13.23 16.54 13.59 16.65C14.18 16.84 14.72 16.81 15.15 16.75C15.63 16.68 16.63 16.16 16.84 15.58C17.05 15 17.05 14.51 16.99 14.41C16.93 14.31 16.81 14.26 16.56 14.14Z" fill="#0E0E0E"/>
+        </svg>
+        Написать в WhatsApp
+      </a>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services">
+      <h2 class="section-title">Что мы <span class="accent">делаем</span></h2>
+      <div class="cards-grid">
+        <!-- Кухни -->
+        <div class="card">
+          <div class="card-gradient">
+            <div class="card-label">Кухни<br>на заказ</div>
+          </div>
+          <div class="card-body">
+            <h3>Кухни на заказ</h3>
+            <p>Проектируем и собираем кухни под ваши размеры и стиль. Фасады, столешницы и фурнитура — только проверенные материалы.</p>
+          </div>
+        </div>
+
+        <!-- Шкафы и стеллажи -->
+        <div class="card">
+          <div class="card-gradient">
+            <div class="card-label">Шкафы<br>и стеллажи</div>
+          </div>
+          <div class="card-body">
+            <h3>Шкафы и стеллажи</h3>
+            <p>Встроенные и корпусные шкафы, открытые стеллажи и гардеробные. Максимально используем каждый сантиметр пространства.</p>
+          </div>
+        </div>
+
+        <!-- Пиломатериалы -->
+        <div class="card">
+          <div class="card-gradient">
+            <div class="card-label">Пиломатериалы</div>
+          </div>
+          <div class="card-body">
+            <h3>Пиломатериалы</h3>
+            <p>Качественная древесина и пиломатериалы для строительства и отделки. Подберём нужную породу и сечение.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why-us">
+      <h2 class="section-title">Почему <span class="accent">мы</span></h2>
+      <div class="why-grid">
+        <!-- Индивидуальные размеры -->
+        <div class="why-item">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 9L12 3L21 9V21H3V9Z" />
+              <path d="M9 21V15H15V21" />
+            </svg>
+          </div>
+          <h3>Индивидуальные размеры</h3>
+          <p>Каждый проект разрабатывается под конкретное помещение. Учитываем ниши, скосы и особенности планировки.</p>
+        </div>
+
+        <!-- Работа по Грозному и району -->
+        <div class="why-item">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.5 4.5 5.5 6.5 4.5C8 3.8 10 3.5 12 3.5C14 3.5 16 3.8 17.5 4.5C19.5 5.5 21 7.5 21 10Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <h3>Работа по Грозному и району</h3>
+          <p>Доставляем и собираем мебель в Грозном и соседних районах. Выезд замерщика — бесплатно.</p>
+        </div>
+
+        <!-- Гарантия на сборку -->
+        <div class="why-item">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" />
+              <path d="M9 12L11 14L15 10" />
+            </svg>
+          </div>
+          <h3>Гарантия на сборку</h3>
+          <p>Даём гарантию на все монтажные работы. Если что-то пойдёт не так — приедем и исправим бесплатно.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section class="contacts">
+      <div class="contacts-box">
+        <div class="contacts-info">
+          <h2>Свяжитесь <span class="accent">с нами</span></h2>
+
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.5 4.5 5.5 6.5 4.5C8 3.8 10 3.5 12 3.5C14 3.5 16 3.8 17.5 4.5C19.5 5.5 21 7.5 21 10Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <div>
+              <div class="label">Адрес</div>
+              <div class="value">улица Баррикадная, 8, Грозный</div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24">
+              <path d="M22 16.92V19.92C22 20.47 21.56 20.92 21 20.92C10.51 20.92 2 12.41 2 1.92C2 1.37 2.45 0.92 3 0.92H6C6.55 0.92 7 1.37 7 1.92C7 3.42 7.24 4.89 7.7 6.28C7.85 6.72 7.73 7.21 7.36 7.58L5.5 9.44C6.84 12.12 9.8 15.08 12.48 16.42L14.34 14.56C14.71 14.19 15.2 14.07 15.64 14.22C17.03 14.68 18.5 14.92 20 14.92C20.55 14.92 21 15.37 21 15.92Z" />
+            </svg>
+            <div>
+              <div class="label">Телефон / WhatsApp</div>
+              <div class="value"><a href="tel:+79389097323">+7 (938) 909-73-23</a></div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7V12L15 15" />
+            </svg>
+            <div>
+              <div class="label">Часы работы</div>
+              <div class="value">пн–чт 09:30–17:00, сб–вс 09:30–17:00</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contacts-action">
+          <a href="https://wa.me/79389097323" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.75 7.84 19L7.54 18.82L4.43 19.64L5.26 16.61L5.07 16.29C4.24 14.98 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.32 4.53 17.87 6.09C19.42 7.64 20.28 9.71 20.28 11.91C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.14C16.31 14.02 15.09 13.42 14.87 13.33C14.64 13.25 14.48 13.2 14.31 13.45C14.14 13.7 13.67 14.25 13.52 14.42C13.37 14.59 13.22 14.61 12.97 14.49C12.72 14.37 11.92 14.11 10.98 13.27C10.25 12.62 9.76 11.81 9.61 11.56C9.46 11.31 9.58 11.17 9.7 11.06C9.81 10.95 9.94 10.78 10.06 10.63C10.18 10.48 10.22 10.37 10.3 10.2C10.38 10.03 10.34 9.88 10.28 9.76C10.22 9.64 9.72 8.42 9.52 7.92C9.32 7.44 9.12 7.5 8.97 7.49C8.83 7.48 8.66 7.48 8.49 7.48C8.32 7.48 8.05 7.54 7.82 7.79C7.59 8.04 6.96 8.63 6.96 9.84C6.96 11.05 7.84 12.22 7.96 12.39C8.08 12.56 9.7 15.06 12.18 16.13C12.77 16.39 13.23 16.54 13.59 16.65C14.18 16.84 14.72 16.81 15.15 16.75C15.63 16.68 16.63 16.16 16.84 15.58C17.05 15 17.05 14.51 16.99 14.41C16.93 14.31 16.81 14.26 16.56 14.14Z" fill="#0E0E0E"/>
+            </svg>
+            Написать в WhatsApp
+          </a>
+          <span class="hint">Ответим в течение рабочего дня</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span class="footer-logo">Vay mebel</span>
+      <span>© 2025 Столярный цех в Грозном</span>
+    </footer>
+  </div>
+
+</body>
+</html>
